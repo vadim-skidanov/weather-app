@@ -7,6 +7,10 @@ const App = () => {
     <div className="container">
       <Header />
       <BodyRow />
+      <BodyRow />
+      <BodyRow />
+      <BodyRow />
+      <BodyRow />
     </div>
   );
 };
