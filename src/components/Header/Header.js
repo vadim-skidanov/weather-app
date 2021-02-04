@@ -1,4 +1,5 @@
 import React from "react";
+import "./Header.styles";
 import SearchBar from "./../SearchBar/SearchBar";
 
 const Header = () => {
