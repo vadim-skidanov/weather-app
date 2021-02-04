@@ -1,11 +1,13 @@
 import React from "react";
-import HelloWorldPage from "./pages/HelloWorldPage";
+import Header from "./components/Header/Header";
+import BodyRow from "./components/BodyRow/BodyRow";
 
 const App = () => {
   return (
-    <h1>
-      <HelloWorldPage />
-    </h1>
+    <div className="container">
+      <Header />
+      <BodyRow />
+    </div>
   );
 };
 
