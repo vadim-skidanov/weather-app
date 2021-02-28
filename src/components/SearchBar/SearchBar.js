@@ -15,9 +15,12 @@ const SearchBar = () => {
   const handleEnterPress = async (e) => {
     if (e.key === "Enter" && e.target.value) {
       const searchResult = await getCityWeatherFromSearch(searchQuery);
+      if (searchResult === null) return;
       const result = mapWeatherData(searchResult);
 
       setWeatherSearchResult(result);
+    } else {
+      setWeatherSearchResult(null);
     }
   };
 

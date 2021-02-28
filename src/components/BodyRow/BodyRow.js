@@ -4,7 +4,8 @@ import { WeatherContext } from "./../../context/WeatherContext";
 import dateConfig from "../../Date/Date";
 
 const BodyRow = () => {
-  const [weatherSearchResult, setWeatherSearchResult] = useContext(WeatherContext);
+  // const [weatherSearchResult, setWeatherSearchResult] = useContext(WeatherContext);
+  const [weatherSearchResult] = useContext(WeatherContext);
 
   if (weatherSearchResult === null) {
     return <div className="nothing">Search for a city</div>;
@@ -17,7 +18,7 @@ const BodyRow = () => {
     <div className="row">
       <div className="weather">
         <div className="weather__data">
-          <div className="weather__data-temp">{temperature}&deg;</div>
+          <div className="weather__data-temp">{Math.round(temperature)}&deg;</div>
           <div className="weather__data-description">{description}</div>
           <div className="weather__data-location">
             {cityName}, {country}
