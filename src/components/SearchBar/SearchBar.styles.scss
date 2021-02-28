@@ -1,3 +1,5 @@
+@import "../../scss/abstracts/mixins";
+
 .search {
   ::-webkit-search-cancel-button {
     display: none;
@@ -8,11 +10,18 @@
     border-radius: 5rem;
     border: 0;
     background-color: #f4f2f2;
+    padding-left: 1rem;
     padding-right: 1.8rem;
     margin-right: 0.4rem;
     font-size: 1.5rem;
     position: relative;
     transition: all 0.2s;
+
+    @include respond(tab-land) {
+      width: 12.6rem;
+      height: 3.5rem;
+      font-size: 2.1rem;
+    }
 
     &:focus,
     &:hover {
@@ -29,7 +38,7 @@
   }
 
   &__submit {
-    border: 1px black solid;
+    font-size: 1.6rem;
     border: none;
     background: transparent;
     position: absolute;
@@ -37,6 +46,11 @@
     top: 1.8rem;
     color: #663f3f;
     cursor: pointer;
+
+    @include respond(tab-land) {
+      top: 2.6rem;
+    }
+
     &:focus {
       outline: none;
     }

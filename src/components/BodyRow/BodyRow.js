@@ -1,22 +1,35 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./BodyRow.styles";
+import { WeatherContext } from "./../../context/WeatherContext";
+import dateConfig from "../../Date/Date";
 
 const BodyRow = () => {
+  const [weatherSearchResult, setWeatherSearchResult] = useContext(WeatherContext);
+
+  if (weatherSearchResult === null) {
+    return <div className="nothing">Search for a city</div>;
+  }
+
+  const { cityName, temperature, description, icon, country } = weatherSearchResult;
+  const { month, date, day } = dateConfig;
+
   return (
     <div className="row">
       <div className="weather">
         <div className="weather__data">
-          <div className="weather__data-temp">25&deg;</div>
-          <div className="weather__data-clouds">sunny</div>
-          <div className="weather__data-location">long beach, la</div>
+          <div className="weather__data-temp">{temperature}&deg;</div>
+          <div className="weather__data-description">{description}</div>
+          <div className="weather__data-location">
+            {cityName}, {country}
+          </div>
         </div>
-        <div className="weather__logo">
-          <div className="weather__logo-content">PIC</div>
+        <div className="weather__icon">
+          <img src={icon} alt="{description}" className="weather__icon-content"></img>
         </div>
         <div className="weather__date">
-          <div className="weather__date-month">Feb</div>
-          <div className="weather__date-date">3</div>
-          <div className="weather__date-weekday">Wed</div>
+          <div className="weather__date-month">{month}</div>
+          <div className="weather__date-date">{date}</div>
+          <div className="weather__date-weekday">{day}</div>
         </div>
       </div>
     </div>

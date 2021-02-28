@@ -1,8 +1,26 @@
+@import "../../scss/abstracts/mixins";
 @import url("https://fonts.googleapis.com/css2?family=Parisienne&display=swap");
 
-.logo {
-  font-size: 2.5rem;
-  font-family: "Parisienne", cursive;
-  margin-left: 2rem;
-  color: #ec4646;
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #bbf1fa;
+  height: 5rem;
+  font-size: 2rem;
+
+  @include respond(tab-land) {
+    height: 7rem;
+  }
+
+  .logo {
+    font-size: 2.5rem;
+    font-family: "Parisienne", cursive;
+    margin-left: 2rem;
+    color: #ec4646;
+
+    @include respond(tab-land) {
+      font-size: 3.5rem;
+    }
+  }
 }

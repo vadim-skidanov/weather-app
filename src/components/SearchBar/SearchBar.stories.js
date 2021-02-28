@@ -1,5 +1,5 @@
 import React from "react";
-// import SearchBar from "./SearchBar";
+import SearchBar from "./SearnpchBar";
 
 export default {
   title: "Search Bar",

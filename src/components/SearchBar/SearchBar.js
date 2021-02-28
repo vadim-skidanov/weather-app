@@ -1,8 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./SearchBar.styles";
+import { getCityWeatherFromSearch } from "../../WeatherApiClient/WeatherApiClient";
+import { WeatherContext } from "./../../context/WeatherContext";
+import { mapWeatherData } from "../../utils/dataMappers";
 
 const SearchBar = () => {
-  const [inputData, setInputData] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
+  const [weatherSearchResult, setWeatherSearchResult] = useContext(WeatherContext);
+
+  const getSearchQuery = (e) => {
+    setSearchQuery(e.target.value);
+  };
+
+  const handleEnterPress = async (e) => {
+    if (e.key === "Enter" && e.target.value) {
+      const searchResult = await getCityWeatherFromSearch(searchQuery);
+      const result = mapWeatherData(searchResult);
+
+      setWeatherSearchResult(result);
+    }
+  };
+
+  const preventDefault = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <form className="search">
       <input
@@ -10,10 +32,11 @@ const SearchBar = () => {
         className="search__input"
         placeholder="Search"
         maxLength="20"
-        onChange={(e) => setInputData(e.target.value)}
-        value={inputData}
+        onChange={getSearchQuery}
+        value={searchQuery}
+        onKeyPress={handleEnterPress}
       />
-      <button type="submit" className="search__submit" onClick={(e) => e.preventDefault()}>
+      <button type="submit" className="search__submit" onClick={preventDefault}>
         <i className="fas fa-search"></i>
       </button>
     </form>

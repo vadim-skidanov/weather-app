@@ -1,17 +1,16 @@
 import React from "react";
 import Header from "./components/Header/Header";
 import BodyRow from "./components/BodyRow/BodyRow";
+import { WeatherProvider } from "./context/WeatherContext";
 
 const App = () => {
   return (
-    <div className="container">
-      <Header />
-      <BodyRow />
-      <BodyRow />
-      <BodyRow />
-      <BodyRow />
-      <BodyRow />
-    </div>
+    <WeatherProvider>
+      <div className="container">
+        <Header />
+        <BodyRow />
+      </div>
+    </WeatherProvider>
   );
 };
 

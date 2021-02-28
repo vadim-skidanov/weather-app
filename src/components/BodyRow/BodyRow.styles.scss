@@ -1,46 +1,94 @@
+@import "../../scss/abstracts/mixins";
+.nothing {
+  height: 100vh;
+  text-align: center;
+  transform: translateY(30%);
+  font-size: 2rem;
+
+  @include respond(tab-land) {
+    font-size: 2.8rem;
+  }
+}
+
 .row {
   background: #bbf1fa;
   margin-top: 1rem;
   padding: 1rem 2rem;
   border-radius: 5px;
   min-height: 5rem;
+
+  @include respond(tab-land) {
+    max-width: 95%;
+    margin: 1rem auto;
+  }
 }
+
 .weather {
   display: flex;
   justify-content: space-between;
+  max-width: 70%;
+  margin: 0 auto;
 
   &__data {
     text-transform: uppercase;
+    font-size: 1.5rem;
     &-temp {
       font-size: 5rem;
       font-weight: 600;
       color: #663f3f;
+
+      @include respond(tab-land) {
+        font-size: 7rem;
+      }
     }
 
-    &-clouds {
+    &-description {
       color: red;
+
+      @include respond(tab-land) {
+        margin-bottom: 0.8rem;
+      }
     }
   }
 
-  &__logo {
-    align-self: center;
+  &__icon {
+    // align-self: center;
     &-content {
-      color: red;
-      font-size: 3rem;
+      width: 10rem;
+
+      @include respond(tab-land) {
+        width: 14rem;
+      }
     }
   }
 
   &__date {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     text-align: center;
     font-size: 1.5rem;
+    margin: 1rem 0;
+
+    @include respond(tab-land) {
+      font-size: 2.1rem;
+    }
+
+    &-month {
+      text-transform: capitalize;
+    }
     &-date {
       color: #000;
       font-size: 2.5rem;
       color: #663f3f;
       font-weight: 600;
+
+      @include respond(tab-land) {
+        font-size: 3.5rem;
+      }
+    }
+    &-weekday {
+      text-transform: capitalize;
     }
   }
 }
